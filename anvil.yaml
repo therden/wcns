@@ -94,3 +94,67 @@ db_schema:
       admin_ui: {order: 0.25, width: 200}
       type: date
     title: Users
+  locations:
+    title: locations
+    client: search
+    server: full
+    columns:
+    - name: name
+      admin_ui: {width: 178.4}
+      type: string
+    - name: graph
+      admin_ui: {width: 200}
+      type: media
+    - name: paused
+      admin_ui: {width: 200}
+      type: bool
+    - name: next_scheduled_alert
+      admin_ui: {width: 200}
+      type: datetime
+    - name: forecast_days_by_weekday
+      admin_ui: {width: 208.4}
+      type: number
+    - name: forecast_updated
+      admin_ui: {width: 200}
+      type: datetime
+    - name: short_forecast
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: long_forecast
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: latitude
+      admin_ui: {width: 99.4}
+      type: number
+    - name: longitude
+      admin_ui: {width: 108.4}
+      type: string
+    - name: grid_id
+      admin_ui: {width: 93.4}
+      type: string
+    - name: grid_x
+      admin_ui: {width: 89.4}
+      type: number
+    - name: grid_y
+      admin_ui: {width: 99.4}
+      type: number
+    - name: hours_in_forecast
+      admin_ui: {order: 0.25390625, width: 200}
+      type: number
+    - name: forecast_starttime_hours
+      admin_ui: {order: 0.244140625, width: 200}
+      type: number
+    - name: forecast_starttime_mins
+      admin_ui: {order: 0.2490234375, width: 200}
+      type: number
+    carriers:
+      title: Carriers
+      client: search
+      server: full
+      columns:
+      - name: carrier
+        admin_ui: {width: 330.4}
+        type: string
+      - name: gateway
+        admin_ui: {width: 350.8}
+        type: string
