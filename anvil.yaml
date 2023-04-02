@@ -1,8 +1,96 @@
+scheduled_tasks: []
+services:
+- source: /runtime/services/tables.yml
+  client_config: {enable_v2: true}
+  server_config: {auto_create_missing_columns: true}
+- source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {test_mode: true}
+- source: /runtime/services/anvil/users.yml
+  client_config: {allow_signup: true, enable_automatically: true, use_email: true,
+    confirm_email: true, use_token: false, allow_remember_me: true, remember_me_days: 30}
+  server_config:
+    user_table: users
+    email_content:
+      confirm_address: {html: '<p>Your email address was used to request an account
+          for the <a href="https://wind-chill-notification-service.anvil.app/" rel="noopener
+          noreferrer" target="_blank"><strong><em>Wind Chill Notification Service</em></strong></a>.</p><p><br></p><p>To
+          complete the account creation process, click the following link to confirm
+          that this <em><u>is</u></em> your email account:</p><p><br></p><p>{{confirm_link}}</p><p><br></p><p>(If
+          <em>you</em> haven''t requested an account for our service, then we''re
+          sorry to inform you that <em>someone</em> tried to do so using your email
+          address. We <u>won''t</u> activate an account connected with this email
+          address unless the confirmation link above is clicked.)</p><p><br></p><p>Thank
+          you,</p><p>The <a href="https://wind-chill-notification-service.anvil.app/"
+          rel="noopener noreferrer" target="_blank" style="background-color: rgb(255,
+          255, 255);"><strong><em>Wind Chill Notification Service</em></strong></a>
+          team</p>', subject: Email confirmation for New account}
+      reset_password: {html: '<p>Hi there,</p><p><br></p><p>We''ve received a "password
+          reset" request for your {{email}} account with the <a href="https://wind-chill-notification-service.anvil.app/"
+          rel="noopener noreferrer" target="_blank" style="background-color: rgb(255,
+          255, 255);"><strong><em>Wind Chill Notification Service</em></strong></a>.</p><p><br></p><p>To
+          reset your password, click the link below:</p><p><br></p><p>{{reset_link}}</p><p><br></p><p>The
+          link will expire in ten minutes -- but you can always submit another reset
+          request.</p><p><br></p><p>Thank you,</p><p>The <a href="https://wind-chill-notification-service.anvil.app/"
+          rel="noopener noreferrer" target="_blank" style="background-color: rgb(255,
+          255, 255);"><strong><em>Wind Chill Notification Service</em></strong></a>
+          team</p>', subject: 'Password reset for Wind Chill Notification Service '}
+      token_login: {html: '<p>Hi there,</p><p>A login request was received for your
+          account ({{email}}). To log in, click the link below:</p><p>{{login_link}}</p><p>This
+          link will expire in ten minutes.</p><p><br></p><p>Thank you,</p><p>The <a
+          href="https://wind-chill-notification-service.anvil.app/" rel="noopener
+          noreferrer" target="_blank" style="background-color: rgb(255, 255, 255);"><strong><em>Wind
+          Chill Notification Service</em></strong></a> team</p>'}
+    email_from_address: accounts@wind-chill-notification-service.anvil.app
+startup: {type: form, module: Main}
+package_name: WCNS
 allow_embedding: false
-package_name: Rally_App_1
-name: Rally App 1
-startup_form: Form1
+name: WCNS
+runtime_options:
+  version: 2
+  client_version: '3'
+  server_version: python3-full
+  server_spec: {base: python310-minimal}
+metadata: {description: 'This service sends subscribers email and text alerts about
+    NOAA''s wind chill forecast for a selected location.  It was developed as a tool
+    for local managers of New York State''s mandatory ''Code Blue'' program. ', title: Wind Chill Notification Service,
+  logo_img: 'asset:wclogo.png'}
+startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap"
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
-runtime_options: {version: 2, client_version: '3', server_version: python3-full, server_spec: null}
-services: []
+db_schema:
+  users:
+    client: none
+    server: full
+    columns:
+    - name: email
+      type: string
+      admin_ui: {order: 0, width: 200}
+    - name: enabled
+      type: bool
+      admin_ui: {order: 1, width: 200}
+    - name: last_login
+      type: datetime
+      admin_ui: {order: 2, width: 200}
+    - name: password_hash
+      type: string
+      admin_ui: {order: 3, width: 200}
+    - name: n_password_failures
+      type: number
+      admin_ui: {order: 4, width: 200}
+    - name: confirmed_email
+      type: bool
+      admin_ui: {order: 5, width: 200}
+    - name: remembered_logins
+      type: simpleObject
+      admin_ui: {order: 6, width: 200}
+    - name: signed_up
+      type: datetime
+      admin_ui: {order: 7, width: 200}
+    - name: mobile
+      admin_ui: {order: 0.5, width: 200}
+      type: string
+    - name: no_notifications_until
+      admin_ui: {order: 0.25, width: 200}
+      type: date
+    title: Users
