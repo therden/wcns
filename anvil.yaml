@@ -147,14 +147,14 @@ db_schema:
     - name: forecast_starttime_mins
       admin_ui: {order: 0.2490234375, width: 200}
       type: number
-    carriers:
-      title: Carriers
-      client: search
-      server: full
-      columns:
-      - name: carrier
-        admin_ui: {width: 330.4}
-        type: string
-      - name: gateway
-        admin_ui: {width: 350.8}
-        type: string
+  carriers:
+    title: Carriers
+    client: search
+    server: full
+    columns:
+    - name: carrier
+      admin_ui: {width: 330.4}
+      type: string
+    - name: gateway
+      admin_ui: {width: 350.8}
+      type: string
