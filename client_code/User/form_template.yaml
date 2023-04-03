@@ -3,9 +3,9 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: ColumnPanel
-  properties: {role: outlined-card, col_widths: '{"YWIGBW":25,"ZZMKYB":35,"ZTXFCM":25,"MSSTHA":35,"YXIFEY":17,"MHETTL":33,"JJRZMK":34,"WQHTTX":26,"WVSBDF":21,"WVFSVS":15,"PZJHWH":11,"DAYNRR":48,"QVWSGJ":12}'}
+  properties: {role: outlined-card, col_widths: '{"YWIGBW":25,"ZZMKYB":35,"ZTXFCM":25,"MSSTHA":35,"YXIFEY":17,"MHETTL":33,"JJRZMK":34,"WQHTTX":26,"WVSBDF":21,"WVFSVS":13,"PZJHWH":14,"DAYNRR":44,"QVWSGJ":16,"YPOCHX":14}'}
   name: outlined_card_1
-  layout_properties: {grid_position: 'FZPPIG,JUJNWV'}
+  layout_properties: {grid_position: 'FZPPIG,GLZPFK'}
   components:
   - type: Label
     properties: {role: headline, align: left, tooltip: '', border: '', foreground: '',
@@ -99,7 +99,7 @@ components:
       grid_position: BTMVSD,RSVEYI
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Cellphone number (optional):', font_size: null, font: '',
+      visible: false, text: 'Cellphone number (optional):', font_size: null, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: label_2
@@ -108,7 +108,7 @@ components:
       grid_position: BTMVSD,YWIGBW
   - type: TextBox
     properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-      border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+      border: '', enabled: true, foreground: '', visible: false, text: '', font_size: null,
       font: '', spacing_above: small, type: tel, spacing_below: small, italic: false,
       background: '', bold: false, underline: false}
     name: cellphone_box
@@ -117,7 +117,7 @@ components:
       grid_position: BTMVSD,ZZMKYB
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
-      visible: true, text: 'Cellular Carrier (required): ', font_size: null, font: '',
+      visible: false, text: 'Cellular Carrier (required): ', font_size: null, font: '',
       spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '', bold: false, underline: false, icon: ''}
     name: label_3
@@ -135,7 +135,7 @@ components:
       enabled: true
       foreground: ''
       items: []
-      visible: true
+      visible: false
       font_size: null
       font: ''
       spacing_above: small
