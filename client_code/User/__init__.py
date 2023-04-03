@@ -11,5 +11,5 @@ class User(UserTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.carrier_dd.items = [(r['carrier'], r) for r in app_tables.carriers.search(tables.order_by('carrier'))]
-    self.county_dd.items = [(r['county'], r) for r in app_tables.counties.search(tables.order_by('county'))]
+    self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search(tables.order_by('name'))]
     # Any code you write here will run before the form opens.

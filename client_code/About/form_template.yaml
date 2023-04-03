@@ -1,0 +1,41 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: RichText
+  properties: {role: null, align: left, tooltip: '', enable_slots: true, border: '',
+    foreground: '', visible: true, font_size: null, content: '# Background
+
+      ### Under the program commonly referred to as "Code Blue", New York State mandates
+      that, whenever wind chill temperatures fall to 32 degrees Fahrenheit or lower,
+      county Departments of Social Services must provide shelter from the elements
+      to all persons who present as homeless -- without regard to whether those persons
+      are eligible for any other benefits or services under the Federal, State, and/or
+      Local programs that those departments administer.
+
+
+      ### In many counties, during several months each year, wind chill temperatures
+      during the daylight hours remain above the 32 degree threshold, while nighttime
+      wind chill temperatures are at or below that level.  To plan for provision of
+      staff and other resources necessary to provide *Code Blue* services,  local
+      social services districts and their contracted homeless services providers rely
+      on weather forecasts.  Often, the overnight forecast "as of" a specified time
+      of day is used to determine whether or not the *Code Blue* program services
+      will be provided that evening.
+
+
+      # Purpose
+
+      ### This app was created to automate the process of checking and communicating
+      wind chill forecasts to *Code Blue* stakeholders.
+
+
+      ### On a schedule that can be uniquely established for each location, up to
+      once daily this **Wind Chill Notification Service** accesses the **[National
+      Weather Service](https://forecast.weather.gov/)**''s offical forecast data and
+      notifies that location''s subscribers of the results via email and/or text message.',
+    font: '', spacing_above: small, spacing_below: small, data: null, background: '',
+    format: markdown}
+  name: rich_text_1
+  layout_properties: {grid_position: 'ZYXLKD,YAWGVA'}
+is_package: true

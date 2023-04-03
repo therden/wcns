@@ -5,7 +5,7 @@ services:
   server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {test_mode: true}
+  server_config: {test_mode: false}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
     confirm_email: true, use_token: false, allow_remember_me: true, remember_me_days: 30}
@@ -42,6 +42,9 @@ services:
           noreferrer" target="_blank" style="background-color: rgb(255, 255, 255);"><strong><em>Wind
           Chill Notification Service</em></strong></a> team</p>'}
     email_from_address: accounts@wind-chill-notification-service.anvil.app
+- source: /runtime/services/anvil/files.yml
+  client_config: {}
+  server_config: {file_table: files}
 startup: {type: form, module: Main}
 package_name: WCNS
 allow_embedding: false
@@ -50,7 +53,7 @@ runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
-  server_spec: {base: python310-minimal}
+  server_spec: {base: python310-datascience}
 metadata: {description: 'This service sends subscribers email and text alerts about
     NOAA''s wind chill forecast for a selected location.  It was developed as a tool
     for local managers of New York State''s mandatory ''Code Blue'' program. ', title: Wind Chill Notification Service,
@@ -60,42 +63,48 @@ native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=E
     rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 db_schema:
   users:
+    title: Users
     client: none
     server: full
     columns:
     - name: email
-      type: string
-      admin_ui: {order: 0, width: 200}
-    - name: enabled
-      type: bool
-      admin_ui: {order: 1, width: 200}
-    - name: last_login
-      type: datetime
-      admin_ui: {order: 2, width: 200}
-    - name: password_hash
-      type: string
-      admin_ui: {order: 3, width: 200}
-    - name: n_password_failures
-      type: number
-      admin_ui: {order: 4, width: 200}
-    - name: confirmed_email
-      type: bool
-      admin_ui: {order: 5, width: 200}
-    - name: remembered_logins
-      type: simpleObject
-      admin_ui: {order: 6, width: 200}
-    - name: signed_up
-      type: datetime
-      admin_ui: {order: 7, width: 200}
-    - name: mobile
-      admin_ui: {order: 0.5, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: no_notifications_until
-      admin_ui: {order: 0.25, width: 200}
+      admin_ui: {width: 200}
       type: date
-    title: Users
+    - name: mobile
+      admin_ui: {width: 200}
+      type: string
+    - name: administrator
+      admin_ui: {width: 200}
+      type: bool
+    - name: enabled
+      admin_ui: {width: 200}
+      type: bool
+    - name: last_login
+      admin_ui: {width: 200}
+      type: datetime
+    - name: password_hash
+      admin_ui: {width: 200}
+      type: string
+    - name: n_password_failures
+      admin_ui: {width: 200}
+      type: number
+    - name: confirmed_email
+      admin_ui: {width: 200}
+      type: bool
+    - name: remembered_logins
+      admin_ui: {width: 200}
+      type: simpleObject
+    - name: signed_up
+      admin_ui: {width: 200}
+      type: datetime
+    - name: email_confirmation_key
+      admin_ui: {}
+      type: string
   locations:
-    title: locations
+    title: Locations
     client: search
     server: full
     columns:
@@ -138,14 +147,14 @@ db_schema:
     - name: grid_y
       admin_ui: {width: 99.4}
       type: number
-    - name: hours_in_forecast
-      admin_ui: {order: 0.25390625, width: 200}
-      type: number
     - name: forecast_starttime_hours
-      admin_ui: {order: 0.244140625, width: 200}
+      admin_ui: {width: 200}
       type: number
     - name: forecast_starttime_mins
-      admin_ui: {order: 0.2490234375, width: 200}
+      admin_ui: {width: 200}
+      type: number
+    - name: hours_in_forecast
+      admin_ui: {width: 200}
       type: number
   carriers:
     title: Carriers
@@ -157,4 +166,18 @@ db_schema:
       type: string
     - name: gateway
       admin_ui: {width: 350.8}
+      type: string
+  files:
+    title: Files
+    client: none
+    server: full
+    columns:
+    - name: path
+      admin_ui: {width: 200}
+      type: string
+    - name: file
+      admin_ui: {width: 200}
+      type: media
+    - name: file_version
+      admin_ui: {width: 200}
       type: string

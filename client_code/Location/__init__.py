@@ -13,7 +13,7 @@ class Location(LocationTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-    self.location_dd.items = [(r['location'], r) for r in app_tables.locations.search()]
+    self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search()]
 
-    fig = anvil.server.call('create_fig') 
-    self.plot_1.figure = fig
+    # fig = anvil.server.call('create_fig') 
+    # self.plot_1.figure = fig
