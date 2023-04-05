@@ -12,6 +12,7 @@ class User(UserTemplate):
     self.init_components(**properties)
     self.carrier_dd.items = [(r['carrier'], r) for r in app_tables.carriers.search(tables.order_by('carrier'))]
     self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search(tables.order_by('name'))]
+    # self.user_copy = anvil.server.call('get_user') if anvil.server.call('get_user') else dict()
     # Any code you write here will run before the form opens.
 
   def notify_by_text_checkbox_change(self, **event_args):

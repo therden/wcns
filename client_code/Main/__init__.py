@@ -37,4 +37,4 @@ class Main(MainTemplate):
     # Find out which Form this Link wants to open
     form_to_open = event_args['sender'].tag.form_to_open
     self.content_panel.clear()
-    self.content_panel.add_component(form_to_open)
+    self.content_panel.add_component(form_to_open(item=dict(self.user_copy)))
