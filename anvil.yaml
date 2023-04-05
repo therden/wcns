@@ -5,7 +5,7 @@ services:
   server_config: {auto_create_missing_columns: true}
 - source: /runtime/services/anvil/email.yml
   client_config: {}
-  server_config: {test_mode: false}
+  server_config: {test_mode: true}
 - source: /runtime/services/anvil/users.yml
   client_config: {allow_signup: true, enable_automatically: true, use_email: true,
     confirm_email: true, use_token: false, allow_remember_me: true, remember_me_days: 30}
@@ -103,6 +103,31 @@ db_schema:
     - name: email_confirmation_key
       admin_ui: {}
       type: string
+  carriers:
+    title: Carriers
+    client: full
+    server: full
+    columns:
+    - name: carrier
+      admin_ui: {width: 330.4}
+      type: string
+    - name: gateway
+      admin_ui: {width: 350.8}
+      type: string
+  files:
+    client: none
+    server: full
+    columns:
+    - name: path
+      type: string
+      admin_ui: {order: 0, width: 200}
+    - name: file
+      type: media
+      admin_ui: {order: 1, width: 200}
+    - name: file_version
+      type: string
+      admin_ui: {order: 2, width: 200}
+    title: Files
   locations:
     title: Locations
     client: full
@@ -156,34 +181,3 @@ db_schema:
     - name: hours_in_forecast
       admin_ui: {width: 200}
       type: number
-  carriers:
-    title: Carriers
-    client: full
-    server: full
-    columns:
-    - name: carrier
-      admin_ui: {width: 330.4}
-      type: string
-    - name: gateway
-      admin_ui: {width: 350.8}
-      type: string
-  files:
-    title: Files
-    client: none
-    server: full
-    columns:
-    - name: name
-      admin_ui: {width: 200}
-      type: string
-    - name: data
-      admin_ui: {width: 200}
-      type: media
-    - name: file_version
-      admin_ui: {width: 200}
-      type: string
-    - name: path
-      type: string
-      admin_ui: {order: 3, width: 200}
-    - name: file
-      type: media
-      admin_ui: {order: 4, width: 200}

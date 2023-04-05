@@ -28,7 +28,9 @@ class Main(MainTemplate):
     self.about_link.tag.form_to_open = About()
     
     anvil.users.login_with_form()
-    self.user = anvil.users.get_user()
+    self.user = anvil.server.call('get_user')
+    if not self.user['administrator']:
+      self.configuration_link.visible = False
 
   def nav_link_click(self, **event_args):
     """A generalised click handler that you can bind to any nav link."""

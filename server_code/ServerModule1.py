@@ -8,8 +8,12 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def get_files_table_data(rowname, column):
-  bytes = app_tables.files.get(name=rowname)[column].get_bytes()
+def get_user():
+  return anvil.users.get_user()
+
+@anvil.server.callable
+def get_files_table_data(pathname, column):
+  bytes = app_tables.files.get(path=pathname)[column].get_bytes()
   return bytes.decode('utf-8')
 
 

@@ -12,8 +12,8 @@ class Configuration(ConfigurationTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-    # Any code you write here will run before the form opens.
-    self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search()]
+    # # Any code you write here will run before the form opens.
+    # self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search()]
 
     # fig = anvil.server.call('create_fig')
     # self.plot_1.figure = fig

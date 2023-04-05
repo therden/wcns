@@ -16,7 +16,7 @@ class User(UserTemplate):
 
   def notify_by_text_checkbox_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
-    text_components = [self.carrier_dd, self.cellphone_box, self.label_2, self.label_3]
+    text_components = [self.carrier_dd, self.cellphone_box, self.label_2, self.label_3, self.test_text_btn, self.test_text_spacer]
     if self.notify_by_text_checkbox.checked:
       for each in text_components:
         each.visible = True

@@ -10,5 +10,5 @@ class About(AboutTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.rich_text_1.content = anvil.server.call('get_files_table_data', 'about.md', 'data')
+    self.rich_text_1.content = anvil.server.call('get_files_table_data', 'about.md', 'file')
 
