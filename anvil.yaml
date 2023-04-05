@@ -181,3 +181,14 @@ db_schema:
     - name: file_version
       admin_ui: {width: 200}
       type: string
+  misc:
+    client: none
+    server: full
+    columns:
+    - name: identifier
+      admin_ui: {order: 0, width: 200}
+      type: string
+    - name: media
+      admin_ui: {order: 1, width: 200}
+      type: media
+    title: Misc

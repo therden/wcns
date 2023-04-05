@@ -7,6 +7,10 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 
+@anvil.server.callable
+def get_misc_table_data(record_id, column_name):
+  contents = app_tables.files.get(identifier=record_id)[column_name].get_bytes()
+  return contents
 
 # @anvil.server.callable
 # def populate_carriers():
