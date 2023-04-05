@@ -11,6 +11,7 @@ from datetime import datetime
 from ..Home import Home
 from ..User import User
 from ..Location import Location
+from ..Configuration import Configuration
 from ..About import About
 
 
@@ -23,6 +24,7 @@ class Main(MainTemplate):
     self.home_link.tag.form_to_open = Home()
     self.user_link.tag.form_to_open = User()
     self.locations_link.tag.form_to_open = Location()
+    self.configuration_link.tag.form_to_open = Configuration()
     self.about_link.tag.form_to_open = About()
     
     anvil.users.login_with_form()

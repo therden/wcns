@@ -81,11 +81,11 @@ components:
           event_bindings: {click: nav_link_click}
         - type: Link
           properties: {role: title, url: '', align: left, tooltip: '', border: '',
-            foreground: '', visible: false, text: Configuration, font_size: null,
-            wrap_on: never, font: '', col_spacing: medium, spacing_above: small, icon_align: left,
+            foreground: '', visible: true, text: Configuration, font_size: null, wrap_on: never,
+            font: '', col_spacing: medium, spacing_above: small, icon_align: left,
             col_widths: '{}', spacing_below: small, italic: false, background: '',
             bold: true, underline: false, icon: ''}
-          name: Configuration_link
+          name: configuration_link
           layout_properties: {grid_position: 'WGWSHP,PZYATU'}
           components: []
           event_bindings: {click: nav_link_click}
