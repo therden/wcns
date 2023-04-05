@@ -15,12 +15,14 @@ def get_files_table_data(rowname, column):
 
 @anvil.server.callable
 def populate_carriers():
-  csv_data = app_tables.files.get(name='carriers.csv')['data'].get_bytes().decode('utf-8')
-  # print(csv_data)
-  for each in csv_data[1:]:
-    print(each)
-    _, carrier, gateway = each[0], each[1], each[2]
-    app_tables.carriers.add_row(carrier=carrier, gateway=gateway) 
+  import pandas as pd
+  with open(data_files['carriers.csv']) as file:
+    df = pd.read_csv(file)
+  for d in df.to_dict(orient="records"):
+    # d is now a dict of {columnname -> value} for this row
+    # We use Python's **kwargs syntax to pass the whole dict as
+    # keyword arguments
+    app_tables.carriers.add_row(**d) 
 
 @anvil.server.callable
 def populate_locations():
