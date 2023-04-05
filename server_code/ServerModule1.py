@@ -8,9 +8,10 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def get_misc_table_data(record_id, column_name):
-  contents = app_tables.files.get(identifier=record_id)[column_name].get_bytes()
-  return contents
+def get_files_table_data(rowname, column):
+  bytes = app_tables.files.get(name=rowname)[column].get_bytes()
+  return bytes.decode('utf-8')
+
 
 # @anvil.server.callable
 # def populate_carriers():
