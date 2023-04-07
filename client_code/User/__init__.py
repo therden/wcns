@@ -12,15 +12,16 @@ class User(UserTemplate):
     self.init_components(**properties)
     self.carrier_dd.items = [(r['carrier'], r) for r in app_tables.carriers.search(tables.order_by('carrier'))]
     self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search(tables.order_by('name'))]
-    # self.user_copy = anvil.server.call('get_user') if anvil.server.call('get_user') else dict()
-    # Any code you write here will run before the form opens.
+    self.user_copy = dict(anvil.server.call('get_user')) if anvil.server.call('get_user') else dict()
+    self.item = self.user_copy
 
   def notify_by_text_checkbox_change(self, **event_args):
     """This method is called when this checkbox is checked or unchecked"""
-    text_components = [self.carrier_dd, self.cellphone_box, self.label_2, self.label_3, self.test_text_btn, self.test_text_spacer]
-    if self.notify_by_text_checkbox.checked:
-      for each in text_components:
-        each.visible = True
-    else:
-      for each in text_components:
-        each.visible = False  
+    by_text_components = [self.carrier_dd, 
+                          self.cellphone_box, 
+                          self.label_2, 
+                          self.label_3, 
+                          self.test_text_btn, 
+                          self.test_text_spacer]
+    for each in by_text_components:
+      each.visible = self.notify_by_text_checkbox.checked

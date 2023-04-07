@@ -103,6 +103,20 @@ db_schema:
     - name: email_confirmation_key
       admin_ui: {}
       type: string
+    - name: carrier
+      admin_ui: {order: 0.625, width: 200}
+      type: link_single
+      target: carriers
+    - name: notify_via_email
+      admin_ui: {order: 0.25, width: 200}
+      type: bool
+    - name: notify_via_text
+      admin_ui: {order: 0.125, width: 200}
+      type: bool
+    - name: subscribed_locations
+      admin_ui: {order: -1, width: 200}
+      type: link_multiple
+      target: locations
   carriers:
     title: Carriers
     client: full
