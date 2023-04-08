@@ -14,9 +14,10 @@ class User(UserTemplate):
     self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search(tables.order_by('name'))]
     self.user_copy = dict(anvil.server.call('get_user')) if anvil.server.call('get_user') else dict()
     self.item = self.user_copy
+    self.toggle_text_components()
 
-  def notify_by_text_checkbox_change(self, **event_args):
-    """This method is called when this checkbox is checked or unchecked"""
+  def toggle_text_components(self):
+    self=self
     by_text_components = [self.carrier_dd, 
                           self.cellphone_box, 
                           self.label_2, 
@@ -25,3 +26,7 @@ class User(UserTemplate):
                           self.test_text_spacer]
     for each in by_text_components:
       each.visible = self.notify_by_text_checkbox.checked
+
+  def notify_by_text_checkbox_change(self, **event_args):
+    """This method is called when this checkbox is checked or unchecked"""
+    self.toggle_text_components()
