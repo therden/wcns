@@ -50,7 +50,7 @@ components:
       col_widths: {}
       grid_position: VQWOZD,UXKPHW
     data_bindings:
-    - {property: selected_value, code: 'self.item[''subscribed_locations'']', writeback: true}
+    - {property: selected_value, code: 'self.item[''subscribed_locations'']', writeback: false}
   - type: Label
     properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
       visible: true, text: 'Send my notifications using:', font_size: null, font: '',
