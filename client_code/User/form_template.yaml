@@ -148,7 +148,7 @@ components:
     name: carrier_dd
     layout_properties: {grid_position: 'FUHDQE,MHETTL', full_width_row: false}
     data_bindings:
-    - {property: selected_value, code: 'self.item[''carrier'']', writeback: true}
+    - {property: selected_value, code: 'self.item[''carrier''][''carrier'']', writeback: true}
   - type: Spacer
     properties: {visible: false, spacing_above: small, spacing_below: small, height: 32,
       tooltip: ''}
