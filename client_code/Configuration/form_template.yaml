@@ -3,18 +3,12 @@ container:
   properties: {col_widths: '{}'}
 components:
 - type: Button
-  properties: {role: outlined, align: left, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: Load data into Carriers table, font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false, icon: ''}
+  properties: {role: outlined, align: left, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Load data into Carriers table, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: populate_carriers_btn
   layout_properties: {grid_position: 'ZAHLPQ,POJRWL'}
   event_bindings: {click: populate_carriers_btn_click}
 - type: Button
-  properties: {role: outlined, align: left, tooltip: '', border: '', enabled: true,
-    foreground: '', visible: true, text: Load data into Locations table, font_size: null,
-    font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-    background: '', bold: false, underline: false, icon: ''}
+  properties: {role: outlined, align: left, tooltip: '', border: '', enabled: true, foreground: '', visible: true, text: Load data into Locations table, font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '', bold: false, underline: false, icon: ''}
   name: populate_locations_btn
   layout_properties:
     col_widths: {}
