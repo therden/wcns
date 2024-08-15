@@ -12,9 +12,13 @@ class User(UserTemplate):
     self.init_components(**properties)
     self.location_dd.items = [(r['name'], r) for r in app_tables.locations.search(tables.order_by('name'))]
     self.carrier_dd.items = [(r['carrier'], r) for r in app_tables.carriers.search(tables.order_by('carrier'))]
-    self.user_copy = dict(anvil.server.call('get_user')) if anvil.server.call('get_user') else dict()
-    self.item = self.user_copy
-    self.headline.text = "View/Edit User: " + self.item['email']
+    user = anvil.server.call('get_user')
+    if user:
+      self.user_copy = dict(user)
+      self.item = self.user_copy
+      self.headline.text = "View/Edit User: " + self.item['email']
+    else:
+      self.user_copy = dict()
     self.toggle_text_components()
 
 
