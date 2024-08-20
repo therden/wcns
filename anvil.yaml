@@ -19,15 +19,15 @@ services:
   client_config: {}
   server_config: {file_table: files}
 startup: {type: form, module: Main}
-package_name: WCNS
+package_name: Alerts
 allow_embedding: false
-name: WCNS
+name: Alerts
 runtime_options:
   version: 2
   client_version: '3'
   server_version: python3-full
   server_spec: {base: python310-datascience}
-metadata: {description: 'This service sends subscribers email and text alerts about NOAA''s wind chill forecast for a selected location.  It was developed as a tool for local managers of New York State''s mandatory ''Code Blue'' program. ', title: Wind Chill Notification Service, logo_img: 'asset:wclogo.png'}
+metadata: {description: Facilitates sending email and/or text alerts, title: Alerts (email and text), logo_img: 'asset:wclogo.png'}
 startup_form: null
 native_deps: {head_html: '<link href="https://fonts.googleapis.com/css2?family=Eczar:wght@400;600&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet" rel="preload" as="font" crossorigin="anonymous">'}
 db_schema:
