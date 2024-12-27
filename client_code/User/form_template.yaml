@@ -117,7 +117,8 @@ components:
     name: test_text_spacer
     properties: {height: 32, spacing_above: small, spacing_below: small, tooltip: '', visible: false}
     type: Spacer
-  - layout_properties:
+  - event_bindings: {click: test_text_btn_click}
+    layout_properties:
       col_widths: {}
       grid_position: TBUOGK,BCXCHZ
     name: test_text_btn
