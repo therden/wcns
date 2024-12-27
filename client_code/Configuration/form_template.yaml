@@ -4,13 +4,6 @@ components:
   name: populate_carriers_btn
   properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: outlined, spacing_above: small, spacing_below: small, text: Load data into Carriers table, tooltip: '', underline: false, visible: true}
   type: Button
-- event_bindings: {click: populate_locations_btn_click}
-  layout_properties:
-    col_widths: {}
-    grid_position: VYHHUJ,LCAHMF
-  name: populate_locations_btn
-  properties: {align: left, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: outlined, spacing_above: small, spacing_below: small, text: Load data into Locations table, tooltip: '', underline: false, visible: true}
-  type: Button
 container:
   properties: {col_widths: '{}'}
   type: ColumnPanel

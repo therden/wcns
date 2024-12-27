@@ -1,9 +1,0 @@
-components:
-- layout_properties: {grid_position: 'ZYXLKD,YAWGVA'}
-  name: rich_text_1
-  properties: {align: left, background: '', border: '', content: '', data: null, enable_slots: true, font: '', font_size: null, foreground: '', format: markdown, role: null, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
-  type: RichText
-container:
-  properties: {col_widths: '{}'}
-  type: ColumnPanel
-is_package: true
